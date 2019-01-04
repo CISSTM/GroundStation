@@ -1,0 +1,17 @@
+[
+  { "temperature": 12, "sendtimes": 10000 },
+  { "pressure": 1000, "sendtimes": 10001 },
+  { "altitude": 100.7, "sendtimes": 10002 },
+  { "temperature": 10, "sendtimes": 10003 },
+  { "pressure": 1000, "sendtimes": 10004 },
+  { "altitude": 100.7, "sendtimes": 10005 },
+  { "temperature": 8, "sendtimes": 10006 },
+  { "pressure": 1000, "sendtimes": 10007 },
+  { "altitude": 100.7, "sendtimes": 10008 },
+  { "temperature": 31, "sendtimes": 10009 },
+  { "pressure": 1000, "sendtimes": 10010 },
+  { "altitude": 100.7, "sendtimes": 10011 },
+  { "temperature": 41, "sendtimes": 10012 },
+  { "pressure": 1000, "sendtimes": 10013 },
+  { "altitude": 100.7, "sendtimes": 10014 }
+]

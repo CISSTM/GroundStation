@@ -1,0 +1,7 @@
+01 = altitude
+02 = temperature
+03 = pressue
+
+11 02 0012 22
+11 03 1000 22
+11 01 1007 22

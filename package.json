@@ -1,0 +1,30 @@
+{
+  "name": "cisstm_groundstation",
+  "version": "1.0.0",
+  "description": "Groundstation for CissTM CanSat",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CISSTM/Groundstation.git"
+  },
+  "keywords": [
+    "CissTM",
+    "CanSat",
+    "Groundstation"
+  ],
+  "author": "Cemre Süler, Micha den Heijer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CISSTM/Groundstation/issues"
+  },
+  "homepage": "https://github.com/CISSTM/Groundstation#readme"
+}
