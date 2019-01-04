@@ -11,7 +11,7 @@
   { "temperature": 31, "sendtimes": 10009 },
   { "pressure": 1000, "sendtimes": 10010 },
   { "altitude": 100.7, "sendtimes": 10011 },
-  { "temperature": 41, "sendtimes": 10012 },
-  { "pressure": 1000, "sendtimes": 10013 },
-  { "altitude": 100.7, "sendtimes": 10014 }
+  { "temperature": 33, "sendtimes": 10012 },
+  { "pressure": 3, "sendtimes": 10013 },
+  { "altitude": 3, "sendtimes": 10014 }
 ]

@@ -2,41 +2,52 @@ var express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const fs = require('fs');
 const port = 8080;
 
-var altitude = 1000;
-var temperature = 15
-var pressure = 1013
+var altitude;
+var temperature;
+var pressure;
 
 app.use(express.static('web'))
 
-setInterval(function() {
-    altitude -= 2;
-    altitude += Math.random()
-    altitude -= Math.random()
-    if (altitude <= 0){
-        altitude = 0;
-    }
-}, 200);
+const getData = function(type, callback) {
+    fs.readFile('data/readable.json', function(err, data) {
+        if (err) throw err;
+        var parsedData = JSON.parse(data);
+        var returnValue;
+        for (var i = 0; i < parsedData.length; i++) {
+            if (parsedData[i][type]) {
+                returnValue = parsedData[i][type];
+            }
+        }
+        callback(null, returnValue);
+    });
+}
 
-setInterval(function() {
-    temperature += Math.random();
-    temperature -= Math.random();
-}, 350);
 
-setInterval(function() {
-    pressure += Math.random()
-    pressure -= Math.random()
-}, 500);
+
 
 io.on('connection', function(socket) {
     //if (err) throw err;
     console.log("connected")
     setInterval(function() {
-        io.emit('temperature', Math.round(temperature));
-        io.emit('altitude', Math.round(altitude));
-        io.emit('pressure', Math.round(pressure));
-    }, 200);
+         getData("altitude", function(err, alt) {
+            if (err) throw err;
+            io.emit('altitude', Math.round(alt));
+        })
+
+        getData("temperature", function(err, temp) {
+            if (err) throw err;
+            io.emit('temperature', Math.round(temp));
+        })
+
+
+         getData("pressure", function(err, pres) {
+            if (err) throw err;
+            io.emit('pressure', Math.round(pres));
+        })
+    }, 100);
 
 });
 

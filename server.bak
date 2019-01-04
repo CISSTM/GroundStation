@@ -1,0 +1,64 @@
+var express = require('express');
+const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+const fs = require('fs');
+const port = 8080;
+
+var altitude = "nope";
+var temperature = "nope";
+var pressure = "nope";
+
+app.use(express.static('web'))
+
+const getData = function (type, callback) {
+	fs.readFile('data/readable.json', function (err, data) {
+		if (err) throw err;
+		var parsedData = JSON.parse(data);
+		var returnValue;
+		for (var i = 0; i < parsedData.length; i++) {
+			if (parsedData[i][type]) {
+				returnValue = parsedData[i][type];
+			}
+		}
+		callback(null, returnValue);
+	});
+}
+
+
+setInterval(function () {
+	getData("altitude", function (err, alt) {
+		if (err) throw err;
+		altitude = alt;
+	})
+}, 200);
+
+setInterval(function () {
+	getData("temperature", function (err, temp) {
+		if (err) throw err;
+		temperature = temp;
+	})
+}, 200);
+
+setInterval(function () {
+	getData("pressure", function (err, pres) {
+		if (err) throw err;
+		pressure = pres;
+	})
+}, 200);
+
+io.on('connection', function (socket) {
+	//if (err) throw err;
+	console.log("connected")
+	setInterval(function () {
+		io.emit('temperature', Math.round(temperature));
+		io.emit('altitude', Math.round(altitude));
+		io.emit('pressure', Math.round(pressure));
+	}, 200);
+
+});
+
+//Dit gedeelte moet ALTIJD onderaan staan
+http.listen(port, function () {
+	console.log("Server running at 0.0.0.0:8080")
+});
