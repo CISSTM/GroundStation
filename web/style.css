@@ -42,8 +42,8 @@ body {
     background-color: #EEEEEE;
     display: grid;
     font-family: 'Roboto', sans-serif;
-    grid-template-columns: 33% auto 33%;
-    grid-template-rows: 40% auto;
+    grid-template-columns: 25% 25% auto 25%;
+    grid-template-rows: 50% 50%;
 }
 
 #temp {
@@ -51,6 +51,10 @@ body {
     height: 50vh;
     margin: 0;
     padding: 0;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
 }
 
 #temp p {
@@ -63,6 +67,11 @@ body {
 }
 
 #press {
+    height: 50vh;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
     margin: 0;
     padding: 0;
     background-color: red;
@@ -78,6 +87,11 @@ body {
 }
 
 #alt {
+    height: 50vh;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
     margin: 0;
     padding: 0;
     background-color: grey;
@@ -92,12 +106,34 @@ body {
     line-height: 50vh;
 }
 
+#speed {
+    height: 50vh;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 0;
+    padding: 0;
+    background-color: purple;
+}
+
+#speed p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-weight: 900;
+    font-size: 72px;
+    line-height: 50vh;
+}
+
 #location {
     margin: 0;
     padding: 0;
     background-color: white;
     grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
     height: 50vh;
 }
 
