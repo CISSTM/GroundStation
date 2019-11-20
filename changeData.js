@@ -32,7 +32,7 @@ setInterval(function(){
     altitude -= 2;
     pressure += Math.random();
     pressure -= Math.random();
-    temperature += Math.random();
+    temperature += 0.9 * Math.random();
     temperature -= Math.random();
     writeData(altitude, pressure, temperature, function(err){
         if (err) throw err;
